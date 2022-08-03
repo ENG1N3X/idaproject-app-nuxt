@@ -18,7 +18,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    // SCSS file in the project
+    '@/assets/css/main.scss',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -30,11 +33,32 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    // [
+    //   '@pinia/nuxt',
+    //   {
+    //     autoImports: [
+    //       // automatically imports `usePinia()`
+    //       'defineStore',
+    //       // automatically imports `usePinia()` as `usePiniaStore()`
+    //       ['defineStore', 'definePiniaStore'],
+    //     ],
+    //   },
+    // ],
+    '@nuxtjs/composition-api/module',
+    ['@pinia/nuxt', { disableVuex: true }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      })
+    },
+  },
 }
