@@ -1,6 +1,4 @@
-# idaproject-app-nuxt
-
-## Build Setup
+# Build Setup
 
 ```bash
 # install dependencies
@@ -18,6 +16,10 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+
+# Node Version
+
+v16.15.0
 
 ## Special Directories
 

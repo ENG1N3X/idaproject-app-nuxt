@@ -7,7 +7,7 @@ export const useProductsStore = defineStore('products', {
         {
           id: 1,
           image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg?o=1',
-          name: 'BНаименование товара',
+          name: 'Наименование товара',
           desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
           price: '12 000',
         },

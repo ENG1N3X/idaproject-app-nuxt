@@ -81,18 +81,18 @@ export default {
   name: 'AddForm',
   data() {
     return {
-      form: {
-        name: 'Наименование товара',
-        desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-        image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
-        price: '17987',
-      },
       // form: {
-      //   name: '',
-      //   desc: '',
-      //   image: '',
-      //   price: '',
+      //   name: 'Наименование товара',
+      //   desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
+      //   image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
+      //   price: '17987',
       // },
+      form: {
+        name: '',
+        desc: '',
+        image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
+        price: '',
+      },
       isFormValid: false,
       formErrors: [],
     }
