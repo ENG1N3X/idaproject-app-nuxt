@@ -4,13 +4,13 @@ export const useProductsStore = defineStore('products', {
   state: () => {
     return {
       products: [
-        {
-          id: 1,
-          image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg?o=1',
-          name: 'Наименование товара',
-          desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-          price: '12 000',
-        },
+        // {
+        //   id: 1,
+        //   image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg?o=1',
+        //   name: 'Наименование товара',
+        //   desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
+        //   price: '12 000',
+        // },
         // {
         //   id: 2,
         //   image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg?o=1',

@@ -68,7 +68,7 @@
       >
     </div>
 
-    <button type="submit" class="form-add__button" :disabled="!isFormValid">
+    <button type="submit" class="form-add__button" :class="isSuccess && 'success'" :disabled="!isFormValid">
       Добавить товар
     </button>
   </form>
@@ -81,20 +81,21 @@ export default {
   name: 'AddForm',
   data() {
     return {
-      // form: {
-      //   name: 'Наименование товара',
-      //   desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
-      //   image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
-      //   price: '17987',
-      // },
       form: {
-        name: '',
-        desc: '',
+        name: 'Наименование товара',
+        desc: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
         image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
         price: '',
       },
+      // form: {
+      //   name: '',
+      //   desc: '',
+      //   image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
+      //   price: '',
+      // },
       isFormValid: false,
       formErrors: [],
+      isSuccess: false,
     }
   },
   methods: {
@@ -119,6 +120,13 @@ export default {
         })
 
         localStorage.setItem('products', JSON.stringify(store.products))
+
+        this.isSuccess = true
+        setTimeout(() => {
+          this.isSuccess = false
+        }, 2000)
+
+        this.clearForm()
       }
     },
 
@@ -146,6 +154,15 @@ export default {
     },
     hideInputError(input) {
       input.nextElementSibling.style.display = 'none'
+    },
+    clearForm() {
+      this.form = {
+        name: '',
+        desc: '',
+        image: 'https://gcdnb.pbrd.co/images/UwPcpl12SYDE.jpg',
+        price: '',
+      }
+      this.isFormValid = false
     },
   },
 }
@@ -180,6 +197,11 @@ export default {
   padding: 10px 0;
   cursor: pointer;
   margin-top: 24px;
+
+  &.success {
+    color: white;
+    background: green;
+  }
 
   transition: color 0.3s ease-in-out;
   &:not(&[disabled]) {

@@ -3,7 +3,7 @@
     <template v-if="fakeLoading">
       <AjaxLoader />
     </template>
-    <template v-else-if="productsList">
+    <template v-else-if="productsList.length">
       <div
         v-for="product in productsList"
         :key="product.id"
@@ -13,7 +13,7 @@
       </div>
     </template>
     <template v-else>
-      <p>No products found</p>
+      <p>Товары не найдены</p>
     </template>
   </div>
 </template>
@@ -59,7 +59,10 @@ export default {
       &:first-child {
         padding-left: 0;
       }
-      &:nth-child(3n) {
+      &:nth-child(1n + 3) {
+        padding-left: 0;
+      }
+      &:nth-child(3n + 3) {
         padding-right: 0;
       }
     }
