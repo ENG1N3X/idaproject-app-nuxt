@@ -29,10 +29,6 @@ export default {
     return {
       filters: [
         {
-          value: 'default',
-          text: 'По умолчанию',
-        },
-        {
           value: 'minmax',
           text: 'От min к max',
         },
@@ -78,12 +74,6 @@ export default {
       const store = useProductsStore()
 
       switch (this.currentFilter.value) {
-        case 'default':
-          store.$patch({
-            products: this.initialArray,
-          })
-
-          break
         case 'by_name':
           store.products.sort((a, b) => (a.name < b.name ? -1 : 1))
 
