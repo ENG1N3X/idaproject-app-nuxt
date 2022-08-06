@@ -1,5 +1,5 @@
 <template>
-  <div class="select">
+  <div class="select" :class="getProductsLength <= 1 && 'disabled'">
     <span class="select__current" @click="toggleSelect">{{
       currentFilter.text
     }}</span>
@@ -53,13 +53,21 @@ export default {
       isOpen: false,
     }
   },
+  computed: {
+    getProductsLength() {
+      const store = useProductsStore()
+      return store.products.length
+    },
+  },
   mounted() {
     const store = useProductsStore()
     this.initialArray = JSON.parse(JSON.stringify(store.products))
   },
   methods: {
     toggleSelect() {
-      this.isOpen = !this.isOpen
+      if (this.getProductsLength > 0) {
+        this.isOpen = !this.isOpen
+      }
     },
     setFilter({ value, text }) {
       this.currentFilter = {
@@ -120,6 +128,11 @@ export default {
   padding: 0 16px;
 
   transition: all 0.2s ease-in-out;
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 
   .select__current {
     display: block;
