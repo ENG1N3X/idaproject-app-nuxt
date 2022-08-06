@@ -33,7 +33,7 @@ export default {
     const store = useProductsStore()
 
     const data = JSON.parse(localStorage.getItem('products'))
-    if (data.length > 0) {
+    if (data && data.length > 0) {
       store.$patch({
         products: data,
       })
