@@ -56,10 +56,7 @@ export default {
     max-width: 332px;
     padding: 0 8px;
     @media (min-width: 1440px) {
-      &:first-child {
-        padding-left: 0;
-      }
-      &:nth-child(1n + 3) {
+      &:nth-child(3n + 1) {
         padding-left: 0;
       }
       &:nth-child(3n + 3) {
